@@ -1,0 +1,19 @@
+@media screen and (min-width: 768px) {
+    .contatiner{
+        margin-top: 100px;
+        width: 450;
+    }
+}
+
+.card {
+    padding: 2em;
+    margin: 20%;
+}
+
+#msg{
+    margin-top: 5px;
+    padding: 0.3em;
+    color: red;
+    border-radius: 5px;
+    background-color: lightcoral;
+}

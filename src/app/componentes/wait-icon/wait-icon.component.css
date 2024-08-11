@@ -1,0 +1,20 @@
+#wait{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.spinner-border{
+    margin-top: 50%;
+    width: 180px;
+    height: 180px;
+    border-width: 1em;
+}
+
+.text-blue{
+    color: blue;
+}

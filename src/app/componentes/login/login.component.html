@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <app-wait-icon *ngIf="loading"></app-wait-icon>
+    <div class="container">
+        <div class="card">
+            <img src="assets/logo.png">         
+                <div class="form-floating">
+                  <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" [(ngModel)]="usuario.login">
+                  <label for="floatingInput">Login</label>
+                </div>
+                <div class="form-floating">
+                  <input type="password" class="form-control" id="floatingPassword" placeholder="Password" [(ngModel)]="usuario.senha" (keyup.enter)="logar()">
+                  <label for="floatingPassword">Senha</label>
+                </div>
+                <button class="btn btn-primary w-100 py-2" type="button" (click)="logar()">Sign in</button>
+                <span id="msg" *ngIf="mensagem != ''"> {{ mensagem }}  </span>
+        </div>
+    </div>
+</body>
+</html>
