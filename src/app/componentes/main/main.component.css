@@ -1,0 +1,18 @@
+#adicionar{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    position: absolute;
+    right: 10%;
+    bottom: 10%;
+    background-color:  green;
+    color: white;
+    font-size: 40px;
+    border: 1px rgb(8,170,8);
+}
+
+.inbtn{
+    margin-left: auto;
+    margin-right: auto;
+    display: block !important;
+}

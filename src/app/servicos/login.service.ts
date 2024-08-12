@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Usuario } from '../model/Usuario';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { CliniToken } from '../model/CliniToken';
 import { environment } from 'src/environments/environment.development';
 
@@ -9,6 +9,13 @@ import { environment } from 'src/environments/environment.development';
   providedIn: 'root'
 })
 export class LoginService {
+  private loggedIn = new BehaviorSubject<boolean>(false);
+
+  currentLoggedStatus = this.loggedIn.asObservable();
+
+  updateLoggedIn(newLoggedInStatus: boolean) {
+    this.loggedIn.next(newLoggedInStatus);
+  }
 
   constructor(private http: HttpClient) { }
 

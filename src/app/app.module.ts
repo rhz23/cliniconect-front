@@ -8,13 +8,17 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './componentes/login/login.component';
 import { MainComponent } from './componentes/main/main.component';
 import { WaitIconComponent } from './componentes/wait-icon/wait-icon.component';
+import { HeaderComponent } from './componentes/header/header.component';
+import { PacienteComponent } from './componentes/paciente/paciente.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     MainComponent,
-    WaitIconComponent
+    WaitIconComponent,
+    HeaderComponent,
+    PacienteComponent
   ],
   imports: [
     BrowserModule,
