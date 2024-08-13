@@ -1,0 +1,17 @@
+.container{
+    margin-top: 1em;
+}
+
+
+#foto{
+    border-radius: 50%;
+}
+
+#Atendimentos{
+    margin-top: 3em;
+}
+
+.nav-link.active {
+    font-weight: bold;
+    color: #007bff;
+  }

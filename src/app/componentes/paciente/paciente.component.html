@@ -1,22 +1,52 @@
-<div class="container mt3">
-    <div class="row">
-        <div class="col-12 text-center">
-            <h3>Ficha do Paciente</h3>
-            <ul class="nav nav-tabs">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#">Active</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-                </li>
-              </ul>
-        </div>
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-12 text-center">
+      <h3>Ficha do Paciente</h3>
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <a class="nav-link" [routerLink]="['/formulario']" routerLinkActive="active" aria-current="page">Informações Básicas</a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a class="nav-link" [routerLink]="['/atendimentos']" routerLinkActive="active">Atendimentos</a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a class="nav-link" [routerLink]="['/midias']" routerLinkActive="active">Mídias</a>
+        </li>
+      </ul>
     </div>
+  </div>
+
+  <!-- Content -->
+  <div class="tab-content mt-3">
+    <router-outlet></router-outlet>
+  </div>
 </div>
 
+
+<!-- <div class="container">
+
+
+  <section id="Atendimentos">
+    <h4>Atendimentos</h4>
+    <div class="row">
+      <div class="col-12">
+        <label for="txtAtendimento">Informações	do Atendimento</label>
+        <textarea class="form-control" id="txtAtendimento"></textarea>
+      </div>
+    </div>
+  </section>
+</div> -->
+
+
+
+
+
+<!-- idPaciente: number = 0;
+nomePaciente: string = "";
+cpfPaciente: string = "";
+sexoPaciente: string = ";"
+dataNascimento: string = ";"
+emailPaciente: string = "";
+telefonePaciente: string = ";"
+ativoPaciente: boolean = true;
+linkFoto: string = ""; -->

@@ -1,0 +1,79 @@
+<app-paciente></app-paciente>
+<div class="container">
+      <!-- informações basicas do paciente -->
+  <section id="infoBasica">
+    <h4>Informações Básicas</h4>
+    <div class="row">
+      <div class="col-8">
+        <div class="row">
+          <div class="col-8">
+            <label class="form-label" for="txtNome">Nome do Paciente</label>
+            <input type="text" class="form-control" id="txtNome">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <label  class="form-label" for="txtCpf">CPF</label>
+            <input type="text" class="form-control" id="txtCpf">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <label  class="form-label" for="txtCpf">Sexo</label>
+            <select id="txtSexo" class="form-control">
+              <option value="M">Masculino</option>
+              <option value="F">Feminino</option>
+              <option value="X">Prefiro não informar</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label  class="form-label" for="dateNascimento">Data Nascimento</label>
+            <input type="date" class="form-control" id="dataNascimento">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-8">
+            <label  class="form-label" for="txtEmail">E-mail</label>
+            <input type="text" class="form-control" id="txtEmail">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <label  class="form-label" for="txtTelefone">Telefone</label>
+            <input type="text" class="form-control" id="txtTelefone">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-8">
+            <label  class="form-label" for="txtEndereco">Endereco</label>
+            <input type="text" class="form-control" id="txtEndereco">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <label  class="form-label" for="txtEndereco">Complemento</label>
+            <input type="text" class="form-control" id="txtComplemento">
+          </div>
+          <div class="col-md-4">
+            <label  class="form-label" for="txtCep">CEP</label>
+            <input type="text" class="form-control" id="txtCep">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <label  class="form-label" for="txtEndereco">Cidade</label>
+            <input type="text" class="form-control" id="txtCidade">
+          </div>
+          <div class="col-md-4">
+            <label  class="form-label" for="txtCep">Estado</label>
+            <input type="text" class="form-control" id="txtEstado">
+          </div>
+        </div>
+      </div>
+      <div class="col-4 text-center">
+        <img id="foto" src="/assets/avatar.png" width="90%">
+        <button class="btn btn-success">Enviar Foto</button>
+      </div>
+    </div>
+  </section>
+</div>

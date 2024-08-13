@@ -14,16 +14,15 @@
         </div>
     </div>
     <hr/>
-    <div class="row" *ngFor="let paciente of lista"></div>
-    <div class="col-12">
+    <div class="row">
         <div class="col-12">
             <ul *ngIf="!loading && lista.length > 0">
                 <li *ngFor="let paciente of lista">
-                  {{ paciente.nomePaciente }}
+                  <a [routerLink]="['/paciente', paciente.idPaciente]">{{paciente.nomePaciente}}</a>
                 </li>
               </ul>
         </div>
     </div>
 </div>
 
-<button id="adicionar" (click)="adicionarPaciente()"><i class="inbtn fa-solid fa-plus"></i></button>
+<a [routerLink]="['/paciente', 'NOVO']"><button id="adicionar"><i class="inbtn fa-solid fa-plus"></i></button></a>

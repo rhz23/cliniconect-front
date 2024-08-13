@@ -7,5 +7,5 @@ export class Paciente {
     emailPaciente: string = "";
     telefonePaciente: string = ";"
     ativoPaciente: boolean = true;
-    linkFoto: string = "";
+    linkFoto: string = "/assets/avatar.png";
   }

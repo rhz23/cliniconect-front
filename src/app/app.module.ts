@@ -10,6 +10,9 @@ import { MainComponent } from './componentes/main/main.component';
 import { WaitIconComponent } from './componentes/wait-icon/wait-icon.component';
 import { HeaderComponent } from './componentes/header/header.component';
 import { PacienteComponent } from './componentes/paciente/paciente.component';
+import { FormularioComponent } from './componentes/formulario/formulario.component';
+import { AtendimentosComponent } from './componentes/atendimentos/atendimentos.component';
+import { MidiasComponent } from './componentes/midias/midias.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { PacienteComponent } from './componentes/paciente/paciente.component';
     MainComponent,
     WaitIconComponent,
     HeaderComponent,
-    PacienteComponent
+    PacienteComponent,
+    FormularioComponent,
+    AtendimentosComponent,
+    MidiasComponent
   ],
   imports: [
     BrowserModule,
