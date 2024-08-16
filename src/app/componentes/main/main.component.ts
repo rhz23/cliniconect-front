@@ -61,4 +61,8 @@ export class MainComponent implements OnInit{
   public adicionarPaciente(): void{
     this.router.navigate(['paciente']);
   }
+
+  public verDetalhes(idPaciente: number): void {
+    this.router.navigate(['/paciente', idPaciente]);
+  }
 }

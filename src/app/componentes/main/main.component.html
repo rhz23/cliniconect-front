@@ -16,18 +16,32 @@
     <hr/>
     <div class="row">
         <div class="col-12">
-            <ul *ngIf="!loading && lista.length > 0">
-                <li *ngFor="let paciente of lista">
-                  <a [routerLink]="['/paciente', paciente.idPaciente]">{{paciente.nomePaciente}}</a>
-                </li>
-              </ul>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col-2">ID</th>
+                <th scope="col-4">Nome</th>
+                <th scope="col-2" class="text-center">Data de Nascimento</th>
+                <th scope="col-2" class="text-center">Telefone</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let paciente of lista" (click)="verDetalhes(paciente.idPaciente)" class="clickable-row">
+                    <td class="col-1">{{ paciente.idPaciente }}</td>
+                    <td class="col-4">{{ paciente.nomePaciente }}</td>
+                    <td class="col-2 text-center">{{ paciente.dataNascimento }}</td>
+                    <td class="col-2 text-center">{{ paciente.telefonePaciente }}</td>
+                  </tr>
+            </tbody>
+          </table>
         </div>
-    </div>
+      </div>
+
 
     <div class="row">
         <div class="col-12 text-center">
-            <button class="btn btn-secondary" (click)="paginaAnterior()" [disabled]="pagina === 0">Anterior</button>
-            <button class="btn btn-secondary" (click)="proximaPagina()" [disabled]="!temMaisPaginas">Próxima</button>
+            <button class="btn btn-secondary m-2" (click)="paginaAnterior()" [disabled]="pagina === 0">Anterior</button>
+            <button class="btn btn-secondary m-2" (click)="proximaPagina()" [disabled]="!temMaisPaginas">Próxima</button>
         </div>
     </div>
     
