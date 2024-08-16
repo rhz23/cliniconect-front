@@ -1,4 +1,4 @@
-<app-paciente></app-paciente>
+<app-wait-icon *ngIf="loading"></app-wait-icon>
 <div class="container">
       <!-- informações basicas do paciente -->
   <section id="infoBasica">
@@ -8,13 +8,13 @@
         <div class="row">
           <div class="col-8">
             <label class="form-label" for="txtNome">Nome do Paciente</label>
-            <input type="text" class="form-control" id="txtNome">
+            <input type="text" class="form-control" id="txtNome" [(ngModel)]="paciente.nomePaciente">
           </div>
         </div>
         <div class="row">
           <div class="col-md-4">
             <label  class="form-label" for="txtCpf">CPF</label>
-            <input type="text" class="form-control" id="txtCpf">
+            <input type="text" class="form-control" id="txtCpf" [(ngModel)]="paciente.cpfPaciente">
           </div>
         </div>
         <div class="row">
@@ -28,52 +28,59 @@
           </div>
           <div class="col-md-4">
             <label  class="form-label" for="dateNascimento">Data Nascimento</label>
-            <input type="date" class="form-control" id="dataNascimento">
+            <input type="date" class="form-control" id="dataNascimento" [(ngModel)]="paciente.dataNascimento">
           </div>
         </div>
         <div class="row">
           <div class="col-md-8">
             <label  class="form-label" for="txtEmail">E-mail</label>
-            <input type="text" class="form-control" id="txtEmail">
+            <input type="text" class="form-control" id="txtEmail" [(ngModel)]="paciente.emailPaciente">
           </div>
         </div>
         <div class="row">
           <div class="col-md-4">
             <label  class="form-label" for="txtTelefone">Telefone</label>
-            <input type="text" class="form-control" id="txtTelefone">
+            <input type="text" class="form-control" id="txtTelefone" [(ngModel)]="paciente.telefonePaciente">
           </div>
         </div>
         <div class="row">
           <div class="col-md-8">
             <label  class="form-label" for="txtEndereco">Endereco</label>
-            <input type="text" class="form-control" id="txtEndereco">
+            <input type="text" class="form-control" id="txtEndereco" [(ngModel)]="paciente.endereco.logradouro">
           </div>
         </div>
         <div class="row">
           <div class="col-md-4">
             <label  class="form-label" for="txtEndereco">Complemento</label>
-            <input type="text" class="form-control" id="txtComplemento">
+            <input type="text" class="form-control" id="txtComplemento" [(ngModel)]="paciente.endereco.complemento">
           </div>
           <div class="col-md-4">
             <label  class="form-label" for="txtCep">CEP</label>
-            <input type="text" class="form-control" id="txtCep">
+            <input type="text" class="form-control" id="txtCep" (keyup.enter)="buscarCEP()" [(ngModel)]="paciente.endereco.cep">
           </div>
         </div>
         <div class="row">
           <div class="col-md-4">
             <label  class="form-label" for="txtEndereco">Cidade</label>
-            <input type="text" class="form-control" id="txtCidade">
+            <input type="text" class="form-control" id="txtCidade" [(ngModel)]="paciente.endereco.cidade.nomeCidade">
           </div>
           <div class="col-md-4">
             <label  class="form-label" for="txtCep">Estado</label>
-            <input type="text" class="form-control" id="txtEstado">
+            <input type="text" class="form-control" id="txtEstado" [(ngModel)]="paciente.endereco.cidade.estado.siglaEstado">
           </div>
         </div>
       </div>
       <div class="col-4 text-center">
-        <img id="foto" src="/assets/avatar.png" width="90%">
+        <img id="foto" [src]="paciente.linkFoto" width="90%">
         <button class="btn btn-success">Enviar Foto</button>
       </div>
     </div>
   </section>
+
+  <div class="button-container mt-3">
+    <button type="button" class="btn btn-success btn-lg" (click)="salvarPaciente()">SAVE</button>
+    <button type="button" class="btn btn-secondary btn-lg">CANCEL</button>
+  </div>
 </div>
+
+

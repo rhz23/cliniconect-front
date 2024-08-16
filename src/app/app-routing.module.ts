@@ -10,10 +10,13 @@ import { MidiasComponent } from './componentes/midias/midias.component';
 const routes: Routes = [
   {path:"", component: LoginComponent},
   {path: "main", component: MainComponent},
-  {path: "paciente/:id", component: PacienteComponent},
-  {path: "formulario", component: FormularioComponent},
-  {path: "atendimentos", component: AtendimentosComponent},
-  {path: "midias", component: MidiasComponent}
+  {path: "paciente/:id", component: PacienteComponent, children: [
+    {path: "formulario", component: FormularioComponent},
+    {path: "atendimentos", component: AtendimentosComponent},
+    {path: "midias", component: MidiasComponent},
+    { path: "", redirectTo: "formulario", pathMatch: "full" } // Redirecionar para "formulario" por padrão
+
+  ]}
 ];
 
 @NgModule({

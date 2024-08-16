@@ -4,13 +4,13 @@
       <h3>Ficha do Paciente</h3>
       <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
-          <a class="nav-link" [routerLink]="['/formulario']" routerLinkActive="active" aria-current="page">Informações Básicas</a>
+          <a class="nav-link" [routerLink]="['formulario']" routerLinkActive="active" aria-current="page">Informações Básicas</a>
         </li>
         <li class="nav-item" role="presentation">
-          <a class="nav-link" [routerLink]="['/atendimentos']" routerLinkActive="active">Atendimentos</a>
+          <a class="nav-link" [routerLink]="['atendimentos']" routerLinkActive="active">Atendimentos</a>
         </li>
         <li class="nav-item" role="presentation">
-          <a class="nav-link" [routerLink]="['/midias']" routerLinkActive="active">Mídias</a>
+          <a class="nav-link" [routerLink]="['midias']" routerLinkActive="active">Mídias</a>
         </li>
       </ul>
     </div>
@@ -20,7 +20,13 @@
   <div class="tab-content mt-3">
     <router-outlet></router-outlet>
   </div>
-</div>
+<!-- 
+  <div class="button-container">
+    <button type="button" class="btn btn-success btn-lg" (click)="salvarPaciente()">SAVE</button>
+    <button type="button" class="btn btn-secondary btn-lg">CANCEL</button>
+  </div>
+</div> -->
+
 
 
 <!-- <div class="container">

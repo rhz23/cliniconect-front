@@ -8,7 +8,6 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './componentes/login/login.component';
 import { MainComponent } from './componentes/main/main.component';
 import { WaitIconComponent } from './componentes/wait-icon/wait-icon.component';
-import { HeaderComponent } from './componentes/header/header.component';
 import { PacienteComponent } from './componentes/paciente/paciente.component';
 import { FormularioComponent } from './componentes/formulario/formulario.component';
 import { AtendimentosComponent } from './componentes/atendimentos/atendimentos.component';
@@ -20,7 +19,6 @@ import { MidiasComponent } from './componentes/midias/midias.component';
     LoginComponent,
     MainComponent,
     WaitIconComponent,
-    HeaderComponent,
     PacienteComponent,
     FormularioComponent,
     AtendimentosComponent,

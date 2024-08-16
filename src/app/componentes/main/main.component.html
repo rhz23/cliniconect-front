@@ -23,6 +23,14 @@
               </ul>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-12 text-center">
+            <button class="btn btn-secondary" (click)="paginaAnterior()" [disabled]="pagina === 0">Anterior</button>
+            <button class="btn btn-secondary" (click)="proximaPagina()" [disabled]="!temMaisPaginas">Próxima</button>
+        </div>
+    </div>
+    
 </div>
 
 <a [routerLink]="['/paciente', 'NOVO']"><button id="adicionar"><i class="inbtn fa-solid fa-plus"></i></button></a>
