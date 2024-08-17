@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { first, map, Observable } from 'rxjs';
 import { Paciente } from '../model/Paciente';
 import { environment } from 'src/environments/environment.development';
 import { TokenService } from './token.service';
-import { pick } from 'lodash';
+import { PacienteResponse } from '../model/PacienteResponse';
 
 @Injectable({
   providedIn: 'root'
@@ -13,13 +13,21 @@ export class PacienteService {
 
   constructor(private http:HttpClient, private tokenService: TokenService) { }
 
-    public buscarPacientes(nome:string, pagina: number, tamanho: number):Observable<Paciente[]>{
+    public buscarPacientes(nome:string, pagina: number, tamanho: number):Observable<PacienteResponse>{
       let header = this.tokenService.getTokenHeader();
       console.log(header);
       return this.http.get<any>(environment.apiURL+"/pacientes/busca?nome="+nome+"&pagina="+pagina+"&tamanho="+tamanho, { headers: header })
-      .pipe(
-        map(response => response.Paciente || [])
-      );
+        .pipe(
+          map( response => {
+            console.log('Resposta da API no serviço: ', response);
+            return {
+              pacientes: response.Paciente || [],
+              pagina: response.pagina || 0,
+              tamanho: response.tamanho || 0,
+              paginasTotais: response.paginasTotais || 0
+            }
+          })
+        );
     }
 
     public cadastrarNovoPaciente(paciente: Paciente): Observable<Paciente> {
