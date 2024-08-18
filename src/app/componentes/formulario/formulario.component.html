@@ -72,15 +72,66 @@
       </div>
       <div class="col-4 text-center">
         <img id="foto" [src]="paciente.linkFoto" width="90%">
-        <button class="btn btn-success">Enviar Foto</button>
+        <button class="btn btn-success" (click)="chamarUpload('profile')">Enviar Foto</button>
       </div>
     </div>
   </section>
 
   <div class="button-container mt-3">
     <button type="button" class="btn btn-success btn-lg" (click)="salvarPaciente()">SAVE</button>
-    <button type="button" class="btn btn-secondary btn-lg">CANCEL</button>
+    <button type="button" class="btn btn-secondary btn-lg" (click)="cancelar()">CANCEL</button>
   </div>
 </div>
 
 
+<!-- Modal para Uploads -->
+
+ <!-- Button trigger modal -->
+ <button type="button" style="visibility: hidden;" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalUpload" id="btnModalUpload">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="modalUpload" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Selecione a foto do Paciente</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <input type="file" id="fileName" class="form-control" (change)="realizarUpload($event)">
+      </div>
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-success" data-bs-dismiss="modal">Upload</button> -->
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal para Mensagens -->
+
+ <!-- Button trigger modal -->
+<button type="button" style="visibility: hidden;" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalAlerta" id="btnModalAlerta">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="modalAlerta" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Mensagem</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        {{ msgModal }}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>

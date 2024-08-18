@@ -5,5 +5,5 @@ export class Endereco {
     public logradouro: string = "";
     public complemento: string = "";
     public cep: string = "";
-    public cidade: Cidade = new Cidade;
+    public cidade: Cidade = new Cidade();
   }

@@ -1,1 +1,60 @@
-<p>midias works!</p>
+<h4>Mídias Disponíveis</h4>
+<div class="row">
+    <div class="col-12">
+        <button class="btn btn-success" (click)="chamarUploadDeMidia('midia')">Adicionar Foto/Video</button>
+    </div>
+</div>
+<div class="row" *ngFor="let ITEM of paciente.midias">
+    <div class="col-12">
+        {{ ITEM }}
+    </div>
+</div>
+
+
+<!-- Modal para Uploads -->
+
+ <!-- Button trigger modal -->
+ <button type="button" style="visibility: hidden;" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalUploadMidia" id="btnModalUploadMidia">
+    Launch demo modal
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="modalUploadMidia" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Upload de Midias (Fotos/Videos)</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <label for="txtDescricaoMidia">Descrição</label>
+            <input type="text" class="form-control" id="txtDescricaoMidia" [(ngModel)]="midiaDesc">
+            <input type="file" id="fileName" class="form-control" (change)="realizarUpload($event)">
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-success" data-bs-dismiss="modal">Upload</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="modalUpload" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Selecione a foto do Paciente</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <input type="file" id="fileName" class="form-control" (change)="realizarUpload($event)">
+        </div>
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-success" data-bs-dismiss="modal">Upload</button> -->
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>

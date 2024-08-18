@@ -43,4 +43,9 @@ export class PacienteService {
       let header = this.tokenService.getTokenHeader();
       return this.http.put<Paciente>(environment.apiURL+"/pacientes/"+paciente.idPaciente, paciente, {headers: header});
     }
+
+    public buscarPacientePorId(id: string) {
+      let header = this.tokenService.getTokenHeader();
+      return this.http.get<Paciente>(environment.apiURL + "/pacientes/" + id, {headers: header});  
+    }
   }

@@ -11,7 +11,7 @@ export class Paciente {
     telefonePaciente: string = "";
     ativoPaciente: boolean = true;
     linkFoto: string = "/assets/avatar.png";
-    endereco: Endereco = new Endereco;
+    endereco: Endereco = new Endereco();
     atendimentos: Atendimento[] = [];
     midias: any[] = [];
   }
