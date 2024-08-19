@@ -3,3 +3,10 @@
     margin-top: 10px;
     width: 6em;
   }
+
+  .circular-image {
+    width: 20vw;
+    height: 30vw;
+    border-radius: 50%;
+    object-fit: cover;
+  }

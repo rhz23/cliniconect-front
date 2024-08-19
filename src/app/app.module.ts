@@ -12,6 +12,8 @@ import { PacienteComponent } from './componentes/paciente/paciente.component';
 import { FormularioComponent } from './componentes/formulario/formulario.component';
 import { AtendimentosComponent } from './componentes/atendimentos/atendimentos.component';
 import { MidiasComponent } from './componentes/midias/midias.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -28,9 +30,10 @@ import { MidiasComponent } from './componentes/midias/midias.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,18 +1,36 @@
-
 <div class="container">
-    <!-- <div class="row">
-        <div class="col-12">
-            <ul *ngIf="!loading && lista.length > 0">
-                <li *ngFor="let paciente of lista">
-                    <div class="card">
-                        <h5 class="card-header">{{atendimento.dataAtendimento}}</h5>
-                        <div class="card-body">
-                          <p class="card-text">{{atendimento.infoAtendimento}}</p>
-                          <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
+  <div class="row">
+      <div class="col-12">
+          <ul *ngIf="sharedPaciente.paciente?.atendimentos">
+              <li *ngFor="let atendimento of sharedPaciente.paciente?.atendimentos">
+                  <div class="card">
+                      <h5 class="card-header">{{ formatDate(atendimento.dataAtendimento) }}</h5>
+                      <div class="card-body">
+                          <p class="card-text">{{ atendimento.infoAtendimento }}</p>
+                          <button class="btn btn-primary" (click)="openModal(atendimento)">EDITAR</button>
                       </div>
-                </li>
-              </ul>
-        </div>
-    </div> -->
+                  </div>
+              </li>
+          </ul>
+      </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="atendimentoModal" tabindex="-1" aria-labelledby="atendimentoModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" style="max-height: 80vh;">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="atendimentoModalLabel">{{formattedDate}}</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="closeModal()"></button>
+          </div>
+          <div class="modal-body" style="overflow-y: auto;">
+              <textarea *ngIf="selecionaAtendimento" [(ngModel)]="selecionaAtendimento.infoAtendimento" class="form-control" style="height: calc(100vh - 300px);"></textarea>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="closeModal()">FECHAR</button>
+              <button type="button" class="btn btn-primary" (click)="saveChanges()">SALVAR</button>
+          </div>
+      </div>
+  </div>
 </div>

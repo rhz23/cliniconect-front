@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Route, Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Paciente } from 'src/app/model/Paciente';
 import { PacienteResponse } from 'src/app/model/PacienteResponse';
 import { PacienteService } from 'src/app/servicos/paciente.service';
@@ -12,7 +12,6 @@ import { PacienteService } from 'src/app/servicos/paciente.service';
 export class MainComponent implements OnInit{
 
   public lista: Paciente[] = new Array();
-  // paciente!: Paciente;
   public keyword:string = "";
   public loading: boolean = false;
   public pagina: number = 0;

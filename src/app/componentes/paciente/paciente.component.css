@@ -15,24 +15,14 @@
     font-weight: bold;
     color: #007bff;
   }
-
-  .button-container {
-    display: flex;
-    justify-content: flex-end;
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-  }
   
   .button-container .btn {
-    margin-left: 30px;
     width: 7em;
   }
 
 
-  .floating-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
+  .floating-save-button {
+    position: relative;
+    margin: 10px;
     z-index: 1000;
   }

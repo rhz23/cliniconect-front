@@ -4,21 +4,22 @@
         <button class="btn btn-success" (click)="chamarUploadDeMidia('midia')">Adicionar Foto/Video</button>
     </div>
 </div>
-<div class="row" *ngFor="let ITEM of paciente.midias">
-    <div class="col-12">
-        {{ ITEM }}
+<div>
+<div *ngIf="sharedPaciente.paciente?.midias">
+    <div class="row mt-2" *ngFor="let midia of sharedPaciente.paciente?.midias">
+      <!-- Exiba informações da mídia -->
+      <a class="midia" href="{{midia.linkMidia}}" target="_blank">
+        <i class="fa-solid fa-photo-film"></i> {{ midia.descricao }}</a>
     </div>
+  </div>
 </div>
 
 
 <!-- Modal para Uploads -->
-
- <!-- Button trigger modal -->
  <button type="button" style="visibility: hidden;" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalUploadMidia" id="btnModalUploadMidia">
     Launch demo modal
   </button>
   
-  <!-- Modal -->
   <div class="modal fade" id="modalUploadMidia" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -40,7 +41,7 @@
   </div>
 
   
-  <!-- Modal -->
+  <!-- Modal para Foto Paciente-->
   <div class="modal fade" id="modalUpload" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -52,7 +53,6 @@
           <input type="file" id="fileName" class="form-control" (change)="realizarUpload($event)">
         </div>
         <div class="modal-footer">
-          <!-- <button type="button" class="btn btn-success" data-bs-dismiss="modal">Upload</button> -->
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
         </div>
       </div>

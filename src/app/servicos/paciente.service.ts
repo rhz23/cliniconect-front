@@ -1,10 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { first, map, Observable } from 'rxjs';
+import { BehaviorSubject, first, map, Observable } from 'rxjs';
 import { Paciente } from '../model/Paciente';
 import { environment } from 'src/environments/environment.development';
 import { TokenService } from './token.service';
 import { PacienteResponse } from '../model/PacienteResponse';
+import { format } from 'date-fns/format';
+import { parse } from 'date-fns/parse';
 
 @Injectable({
   providedIn: 'root'
@@ -31,15 +33,15 @@ export class PacienteService {
     }
 
     public cadastrarNovoPaciente(paciente: Paciente): Observable<Paciente> {
-      // const enderecoEnviar = pick(paciente.endereco, 'cep', 'complemento');
-      // const pacienteParaEnviar = pick(paciente, 'nomePaciente', 'cpfPaciente', 'sexoPaciente', 'dataNascimento', 'emailPaciente', 'telefonePaciente');
-
+      const pacienteParaSalvar: Paciente = paciente;
 
       let header = this.tokenService.getTokenHeader();
       return this.http.post<Paciente>(environment.apiURL+"/pacientes" , paciente, {headers: header});
     }
   
     public atualizarPaciente(paciente: Paciente): Observable<Paciente> {
+      const pacienteParaSalvar: Paciente = paciente;
+
       let header = this.tokenService.getTokenHeader();
       return this.http.put<Paciente>(environment.apiURL+"/pacientes/"+paciente.idPaciente, paciente, {headers: header});
     }
@@ -48,4 +50,5 @@ export class PacienteService {
       let header = this.tokenService.getTokenHeader();
       return this.http.get<Paciente>(environment.apiURL + "/pacientes/" + id, {headers: header});  
     }
+    
   }
