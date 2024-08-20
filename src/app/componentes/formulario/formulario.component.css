@@ -10,3 +10,8 @@
     border-radius: 50%;
     object-fit: cover;
   }
+
+  .invalid-feedback {
+    color: red;
+    font-size: 12px; /* Tamanho do texto menor */
+  }

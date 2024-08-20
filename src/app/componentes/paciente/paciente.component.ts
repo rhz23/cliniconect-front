@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { format } from 'date-fns';
-import { parse } from 'date-fns/parse';
 import { Paciente } from 'src/app/model/Paciente';
 import { PathToFile } from 'src/app/model/pathToFile';
 import { CepService } from 'src/app/servicos/cep.service';
@@ -29,15 +27,6 @@ export class PacienteComponent implements OnInit {
   }
 
   ngOnInit(): void {
-  }
-
-  private convertDataNascimentoFrontEnd(): void {
-    if (this.sharedPaciente.paciente.dataNascimento) {
-      const date = parse(this.sharedPaciente.paciente.dataNascimento, 'dd/MM/yyyy', new Date());
-      const formattedDate = format(date, 'yyyy-MM-dd')
-      console.log(formattedDate);
-      this.sharedPaciente.paciente.dataNascimento = formattedDate;
-    }
   }
 
   public salvarPaciente() {

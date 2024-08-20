@@ -23,6 +23,7 @@ export class FormularioComponent implements OnInit {
   private pathToFile: PathToFile = new PathToFile();
   private idPaciente: string = "";
   public dataNacimentoFormatada: string= "";
+  public cpfInvalido: boolean = false;
 
   public constructor(private cepService: CepService,
                     public sharedPaciente: SharedPacienteService,
@@ -124,5 +125,63 @@ export class FormularioComponent implements OnInit {
   public chamarUpload(mode: string): void {
     document.getElementById("btnModalUpload")?.click();
   }
+
+  private validarCPF(cpf: string): boolean {
+
+    if (!cpf) return false;
+    cpf = cpf.replace(/\D+/g, '');
+    if (cpf.length !== 11) return false;
+
+    if (
+      cpf === "11111111111" ||
+      cpf === "22222222222" ||
+      cpf === "33333333333" ||
+      cpf === "44444444444" ||
+      cpf === "55555555555" ||
+      cpf === "66666666666" ||
+      cpf === "77777777777" ||
+      cpf === "88888888888" ||
+      cpf === "99999999999"
+    ) {
+      return false;
+    }
+  
+    let soma, resto;
+    soma = 0;
+    for (let i = 1; i <= 9; i++) {
+      soma += parseInt(cpf.substring(i-1, i)) * (11 - i);
+    }
+    resto = (soma * 10) % 11;
+    if (resto >= 10) resto = 0;
+    if (resto != parseInt(cpf.substring(9, 10))) return false;
+  
+    soma = 0;
+    for (let i = 1; i <= 10; i++){
+      soma += parseInt(cpf.substring(i-1, i)) * (12 - i);
+    }
+    resto = (soma * 10) % 11;
+    if ((resto >= 10)) resto = 0;
+    if (resto != parseInt(cpf.substring(10, 11))) return false;
+    
+    return true;
+  }
+
+  public validateCPF(): void {
+  this.cpfInvalido = !this.validarCPF(this.sharedPaciente.paciente.cpfPaciente);
+}
+
+
+public emailInvalido: boolean = false;
+
+public validateEmail(): void {
+  const email = this.sharedPaciente.paciente.emailPaciente;
+  const emailValido = this.validarEmail(email);
+  this.emailInvalido = !emailValido;
+}
+
+private validarEmail(email: string): boolean {
+  const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  return regex.test(email);
+}
 
 }
