@@ -126,7 +126,7 @@ export class FormularioComponent implements OnInit {
     document.getElementById("btnModalUpload")?.click();
   }
 
-  private validarCPF(cpf: string): boolean {
+  private validaCPF(cpf: string): boolean {
 
     if (!cpf) return false;
     cpf = cpf.replace(/\D+/g, '');
@@ -166,20 +166,20 @@ export class FormularioComponent implements OnInit {
     return true;
   }
 
-  public validateCPF(): void {
-  this.cpfInvalido = !this.validarCPF(this.sharedPaciente.paciente.cpfPaciente);
+  public validarCPF(): void {
+  this.cpfInvalido = !this.validaCPF(this.sharedPaciente.paciente.cpfPaciente);
 }
 
 
 public emailInvalido: boolean = false;
 
-public validateEmail(): void {
+public validarEmail(): void {
   const email = this.sharedPaciente.paciente.emailPaciente;
-  const emailValido = this.validarEmail(email);
+  const emailValido = this.validarEmailRegex(email);
   this.emailInvalido = !emailValido;
 }
 
-private validarEmail(email: string): boolean {
+private validarEmailRegex(email: string): boolean {
   const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   return regex.test(email);
 }

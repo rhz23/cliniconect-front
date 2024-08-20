@@ -1,10 +1,14 @@
 <div class="container">
   <div class="row">
+    <div class="col-12 d-flex justify-content-between align-items-center">
+        <h4>Atendimentos</h4>
+        <button class="btn btn-success" (click)="criarNovoAtendimento()">Novo Atendimento</button>
+      </div>
       <div class="col-12">
           <ul *ngIf="sharedPaciente.paciente?.atendimentos">
               <li *ngFor="let atendimento of sharedPaciente.paciente?.atendimentos">
                   <div class="card">
-                      <h5 class="card-header">{{ formatDate(atendimento.dataAtendimento) }}</h5>
+                      <h5 class="card-header">{{ formatarDataAtendimento(atendimento.dataAtendimento) }}</h5>
                       <div class="card-body">
                           <p class="card-text">{{ atendimento.infoAtendimento }}</p>
                           <button class="btn btn-primary" (click)="openModal(atendimento)">EDITAR</button>
@@ -29,7 +33,7 @@
           </div>
           <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="closeModal()">FECHAR</button>
-              <button type="button" class="btn btn-primary" (click)="saveChanges()">SALVAR</button>
+              <button type="button" class="btn btn-primary" (click)="salvarModificacoesAtendimento()">SALVAR</button>
           </div>
       </div>
   </div>

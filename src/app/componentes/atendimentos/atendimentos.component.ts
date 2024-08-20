@@ -39,18 +39,26 @@ public openModal(atendimento: any) {
   }
 }
 
-saveChanges() {
-  if (this.selecionaAtendimento) {
-    // Encontra o atendimento correspondente na lista e atualiza
-    const index = this.sharedPaciente.paciente?.atendimentos.findIndex(
-      atendimento => atendimento.idAtendimento === this.selecionaAtendimento.id
-    );
 
-    if (index !== undefined && index >= 0) {
-      this.sharedPaciente.paciente.atendimentos[index] = this.selecionaAtendimento;
+public salvarModificacoesAtendimento() {
+  if (this.selecionaAtendimento) {
+    if (this.selecionaAtendimento.idAtendimento === null) {
+      this.selecionaAtendimento.dataAtendimento = this.formatDataParaSalvar(this.selecionaAtendimento.dataAtendimento);
+      this.sharedPaciente.paciente.atendimentos.push(this.selecionaAtendimento);
+    } else {
+      const index = this.sharedPaciente.paciente?.atendimentos.findIndex(
+        atendimento => atendimento.idAtendimento === this.selecionaAtendimento.idAtendimento
+      );
+      if (index !== undefined && index >= 0) {
+        this.sharedPaciente.paciente.atendimentos[index] = this.selecionaAtendimento;
+      }
     }
     this.closeModal();
   }
+}
+
+public formatDataParaSalvar(data: Date): string {
+  return this.datePipe.transform(data, "yyyy-MM-dd'T'HH:mm:ss.SSSSSS") || '';
 }
 
 
@@ -65,8 +73,25 @@ public closeModal() {
 }
 
 
-public formatDate(date: any): string {
+public formatarDataAtendimento(date: any): string {
   return this.datePipe.transform(date, 'dd/MM/yyyy HH:mm') || '';
 }
+
+
+public criarNovoAtendimento() {
+  this.selecionaAtendimento = {
+    idAtendimento: null,
+    dataAtendimento: new Date(),
+    infoAtendimento: ''
+  };
+  this.formattedDate = this.datePipe.transform(this.selecionaAtendimento.dataAtendimento, 'dd/MM/yyyy HH:mm') || '';
+  const modalElement = document.getElementById('atendimentoModal');
+  if (modalElement) {
+    const modal = new bootstrap.Modal(modalElement);
+    modal.show();
+  }
+}
+
+
 }
 
